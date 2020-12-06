@@ -19,12 +19,18 @@ def predict():
     print(int_features)
     print(final)
     prediction=model.predict(final)
-    output = prediction
-    print(output)
-    if output==str(1):
-        return render_template('bladder.html',pred='Need to get an Incontinence CHECK!\n {}'.format(output),bhai="Need to get an Incontinence CHECK!")
+#     output = prediction
+#     print(output)
+#     if output==str(1):
+#         return render_template('bladder.html',pred='Need to get an Incontinence CHECK!\n {}'.format(output),bhai="Need to get an Incontinence CHECK!")
+#     else:
+#         return render_template('bladder.html',pred='Safe from Incontinence\n  {}'.format(output),bhai="Safe from Incontinence")
+#     print(prediction)
+    if prediction == 1:
+        return render_template('bladder.html', pred='Need to get an Incontinence CHECK!\n {}')
+        #.format(output),bhai="Need to get an Incontinence CHECK!)
     else:
-        return render_template('bladder.html',pred='Safe from Incontinence\n  {}'.format(output),bhai="Safe from Incontinence")
+        return render_template('bladder.html', pred='Safe from Incontinence\n  {}')#,bhai="Safe from Incontinence")
 
 
 if __name__ == '__main__':
